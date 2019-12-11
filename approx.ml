@@ -281,7 +281,7 @@ let process_header resp str =
     resp.status <- int_of_string code
   in
   let do_header (header, value) =
-    match String.lowercase header with
+    match String.lowercase_ascii header with
     | "content-length" ->
         (try resp.length <- Int64.of_string value
          with Failure _ ->

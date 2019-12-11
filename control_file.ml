@@ -43,7 +43,7 @@ let parse line =
   try
     let i = String.index line ':' in
     let name =
-      String.lowercase (substring line ~until: (trim_right line i))
+      String.lowercase_ascii (substring line ~until: (trim_right line i))
     in
     let info =
       substring line ~from: (trim_left line (i + 1))

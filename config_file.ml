@@ -38,7 +38,7 @@ let get = get_generic (fun x -> x)
 let get_int = get_generic int_of_string
 
 let bool_of_string str =
-  match String.lowercase str with
+  match String.lowercase_ascii str with
   | "true"  | "yes" | "on"  | "1" -> true
   | "false" | "no"  | "off" | "0" -> false
   | _ -> failwith ("not a boolean value: " ^ str)

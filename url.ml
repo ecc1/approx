@@ -40,7 +40,7 @@ type protocol = HTTP | HTTPS | FTP | FILE
 
 let protocol url =
   try
-    match String.lowercase (substring url ~until: (String.index url ':')) with
+    match String.lowercase_ascii (substring url ~until: (String.index url ':')) with
     | "http" -> HTTP
     | "https" -> HTTPS
     | "ftp" -> FTP
@@ -50,7 +50,7 @@ let protocol url =
     invalid_string_arg "no protocol in URL" url
 
 let rate_option =
-  match String.lowercase max_rate with
+  match String.lowercase_ascii max_rate with
   | "" | "none" | "unlimited" -> ""
   | str -> "--limit-rate " ^ str
 

@@ -14,7 +14,7 @@ let log_to_stderr () =
   writer := stderr_log
 
 let facility_of_string s =
-  match String.lowercase s with
+  match String.lowercase_ascii s with
   | "authpriv" -> `Authpriv
   | "cron" -> `Cron
   | "daemon" -> `Daemon
