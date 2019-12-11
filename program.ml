@@ -20,7 +20,7 @@ let string_of_exception exc =
       sprintf "File %s, line %d: missing \"%s\" field"
         (Control_file.file_name par)
         (Control_file.line_number par)
-        (String.capitalize field)
+        (String.capitalize_ascii field)
   | e -> Printexc.to_string e
 
 let perform f x =
