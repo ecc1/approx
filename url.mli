@@ -15,7 +15,7 @@ type protocol = HTTP | HTTPS | FTP | FILE
 
 val protocol : string -> protocol
 
-exception File_not_found  (* raised when remote server returns 404 *)  
+exception File_not_found  (* raised when remote server returns 404 *)
 exception Download_error  (* raised when any other failure occurs *)
 
 (* Perform HTTP HEAD (or equivalent for FTP and FILE) on the given URL
@@ -30,7 +30,7 @@ val download :
   string ->
   ?headers:string list ->
   ?header_callback:(string -> unit) ->
-  (string -> int -> int -> unit) -> unit
+  (bytes -> int -> int -> unit) -> unit
 
 (* Download a file from a remote repository *)
 
